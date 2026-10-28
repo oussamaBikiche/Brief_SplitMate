@@ -73,48 +73,54 @@
                 </div>
             </div>
         </section>
-        <section id="groupes" hidden>
-            <section class="part_one_main">
-                <div class="description_main">
-                    <p class="title-main"> My Groups</p>
-                    <p class="sous-title-main">Organize expenses by trips, homes, or events.</p>
-                    <!--<img class="search-icone-main" src="icone/search.png" alt="search-icone"> <input type="search" id="main-search" placeholder="Search groups...">-->
-                </div>
+        <section id="groupes">
+            
+                <section class="part_one_main">
+                    <div class="description_main">
+                        <p class="title-main"> Mes groupes</p>
+                        <p class="sous-title-main">Organisez les dépenses par voyage, logement ou événement</p>
 
-                <div class="button-main">
-                    <button class="create-group">+ Create Group</button>
-                    <select class="status">
-                        <option value="">status</option>
-                        <option value="one">one</option>
-                    </select>
-            </section>
-
-            <section class="listes-cards">
-                <div id="card">
-                    <h3 id="group-name">Voyage à Lisbonne </h3>
-                    <p id="group-description">Escapade estivale entre amis </p>
-
-                    <div id="started-devise">
-                        <div>
-                            <p id="started"> STARTED:</p>
-                            <p id="started-info"> 12mai</p>
-                        </div>
-                        <div>
-                            <p id="devise"> DEVISE:</p>
-                            <p id="devise-info"> DH</p>
-                        </div>
                     </div>
 
-                    <div class="members-total">
-                        <p class="members">5 members</p>
-                        <div class="total-depenses">
-                            <p class="total">€1,248.60</p>
-                            <p class="description-total-depenses">Total des dépenses</p>
+                    <div class="button-main">
+                        <button class="create-group">+ Creer un groupe</button>
+                        <select class="status">
+                            <option value="">status</option>
+
+                        </select>
+                </section>
+
+                <section class="listes-cards">
+                    <div id="card">
+                        <div>
+                            <h3 id="group-name">Voyage à Lisbonne </h3>
+                            <p id="group-description">Escapade estivale entre amis </p>
+                        </div>
+                        <div id="started-devise">
+                            <div>
+                                <p id="started"> Début :
+                                    :</p>
+                                <p id="started-info"> 12mai</p>
+                            </div>
+                            <div>
+                                <p id="devise"> DEVISE:</p>
+                                <p id="devise-info"> DH</p>
+                            </div>
+                        </div>
+
+                        <div class="members-total">
+                            <p class="members">5 members</p>
+                            <div class="total-depenses">
+                                <p class="total">€1,248.60</p>
+                                <p class="description-total-depenses">Total des dépenses</p>
+                            </div>
+                        </div>
+                        <div class="group-buttons">
+                            <button id="card-button"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                            <button id="delete-button"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
                     </div>
-                    <button id="card-button">View details</button>
-                </div>
-            </section>
+                </section>
         </section>
          <section id="membres" hidden>
             <div class="texte">
