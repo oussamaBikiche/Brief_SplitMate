@@ -508,3 +508,45 @@ main{
         width: 75px;
     }
 }
+
+
+.part_one_main_deponses{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.table-depenses{
+    justify-content: center;
+
+}
+.description_main_deponses{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.title-main-deponses{
+    font-weight: bold;
+    
+}
+.sous-title-main-deponses{
+      font-weight: lighter;
+        font-size: 90%;
+        color: #767676
+}
+
+.button-and-select{
+
+display: flex;
+flex-direction: column;
+gap: 23px;
+}
+.Ajouter-deponse{
+      color:  #FFFFFF;
+    background-color:green;
+    width: 80%;
+    height: 20px;
+    font-weight: bold;
+    border-radius: 7px;
+
+}
