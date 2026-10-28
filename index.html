@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1 id="logoH">Vue d'ensemble<span>Dashbord</span></h1>
+
+        <div class="search fa-solid fa-magnifying-glass">
+            <input type="search" placeholder="Rechercher..." id="search">
+        </div>
+    </header>
+    <aside class="sidebar">
+        <div id="logoA">
+            <h2><small>S</small>Split<span>Mate</span></h2>
+        </div>
+        <div class="navigation">
+            <nav>
+                <a href="index.html" class="fa-solid fa-table-cells-large">Table de bord</a>
+                <a href="#" class="fa-solid fa-user-group">Groupes</a>
+                <a href="#" class="fa-solid fa-user">Membres</a>
+                <a href="#" class="fa-solid fa-file-lines">Depenses</a>
+                <a href="#" class="fa-solid fa-arrow-up-right-dots">Soldes</a>
+                <a href="#" class="fa-solid fa-credit-card">Remboursement</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main>
+        <div class="hero">
+            <strong>VOTRE ESPACE PARTAGÉ</strong>
+            <h3>Bienvenue sur SplitMate !</h3>
+            <p>Les dépenses partagées, sans les conversations gênantes.</p>
+            <div class="button">
+                <button type="submit">+ Créer un groupe</button>
+                <button type="submit">+ Ajouter une dépense</button>
+            </div>
+        </div>
+        <div class="cards">
+            <div>
+                <i class="fa-solid fa-user-group"></i>
+                <h4>Total des groupes</h4>
+                <span>4</span>
+                <small>+1 ce mois-ci</small>
+            </div>
+            <div>
+                <i class="fa-solid fa-user"></i>
+                <h4>Total des membres</h4>
+                <span>18</span>
+                <small>Tous groupes confondus</small>
+            </div>
+            <div>
+                <i class="fa-solid fa-file-lines"></i>
+                <h4>Montant total dépensé</h4>
+                <span>€6,698.80</span>
+                <small>+12,5 % ce mois-ci</small>
+            </div>
+        </div>
+        <div class="Dépenses-récentes">
+            <h4>Dépenses récentes</h4>
+            <p>Votre activité partagée récente</p>
+            <a href="/js/depenses.js">Tous voir -></a>
+        </div>
+        <div>
+            <div class="Dépenses-catégorie">
+               <h4>Dépenses par catégorie</h4>
+               <p>mois en cours</p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
