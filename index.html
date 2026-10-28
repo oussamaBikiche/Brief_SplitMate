@@ -10,71 +10,251 @@
 </head>
 
 <body>
-    <header id="header">
-        <h1 id="logoH">Vue d'ensemble<span>Dashbord</span></h1>
+    <section id="index1">
+        <header id="header">
+            <h1 id="logoH">Vue d'ensemble<span>Dashbord</span></h1>
 
-        <div class="search fa-solid fa-magnifying-glass">
-            <input type="search" placeholder="Rechercher..." id="search">
-        </div>
-    </header>
-    <aside class="sidebar">
-        <div id="logoA">
-            <h2><small>S</small>Split<span>Mate</span></h2>
-        </div>
-        <div class="navigation">
-            <nav>
-                <a href="index.html" class="fa-solid fa-table-cells-large">Table de bord</a>
-                <a href="group.html" class="fa-solid fa-user-group">Groupes</a>
-                <a href="#" class="fa-solid fa-user">Membres</a>
-                <a href="#" class="fa-solid fa-file-lines">Depenses</a>
-                <a href="#" class="fa-solid fa-arrow-up-right-dots">Soldes</a>
-                <a href="#" class="fa-solid fa-credit-card">Remboursement</a>
-            </nav>
-        </div>
-    </aside>
+            <div class="search fa-solid fa-magnifying-glass">
+                <input type="search" placeholder="Rechercher..." id="search">
+            </div>
+        </header>
+        <aside class="sidebar">
+            <div id="logoA">
+                <h2><small>S</small>Split<span>Mate</span></h2>
+            </div>
+            <div class="navigation">
+                <nav>
+                    <a href="#index1" class="fa-solid fa-table-cells-large">Table de bord</a>
+                    <a href="#group" class="fa-solid fa-user-group">Groupes</a>
+                    <a href="#" class="fa-solid fa-user">Membres</a>
+                    <a href="#depenses" class="fa-solid fa-file-lines">Depenses</a>
+                    <a href="#" class="fa-solid fa-arrow-up-right-dots">Soldes</a>
+                    <a href="#" class="fa-solid fa-credit-card">Remboursement</a>
+                </nav>
+            </div>
+        </aside>
 
-    <main>
-        <div class="hero">
-            <strong>VOTRE ESPACE PARTAGÉ</strong>
-            <h3>Bienvenue sur SplitMate !</h3>
-            <p>Les dépenses partagées, sans les conversations gênantes.</p>
-            <div class="button">
-                <button type="submit">+ Créer un groupe</button>
-                <button type="submit">+ Ajouter une dépense</button>
+        <main>
+            <div class="hero">
+                <strong>VOTRE ESPACE PARTAGÉ</strong>
+                <h3>Bienvenue sur SplitMate !</h3>
+                <p>Les dépenses partagées, sans les conversations gênantes.</p>
+                <div class="button">
+                    <button type="submit">+ Créer un groupe</button>
+                    <button type="submit">+ Ajouter une dépense</button>
+                </div>
             </div>
-        </div>
-        <div class="cards">
+            <div class="cards">
+                <div>
+                    <i class="fa-solid fa-user-group"></i>
+                    <h4>Total des groupes</h4>
+                    <span>4</span>
+                    <small>+1 ce mois-ci</small>
+                </div>
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    <h4>Total des membres</h4>
+                    <span>18</span>
+                    <small>Tous groupes confondus</small>
+                </div>
+                <div>
+                    <i class="fa-solid fa-file-lines"></i>
+                    <h4>Montant total dépensé</h4>
+                    <span>€6,698.80</span>
+                    <small>+12,5 % ce mois-ci</small>
+                </div>
+            </div>
+            <div class="Dépenses-récentes">
+                <h4>Dépenses récentes</h4>
+                <p>Votre activité partagée récente</p>
+                <a href="/js/depenses.js">Tous voir -></a>
+            </div>
             <div>
-                <i class="fa-solid fa-user-group"></i>
-                <h4>Total des groupes</h4>
-                <span>4</span>
-                <small>+1 ce mois-ci</small>
+                <div class="Dépenses-catégorie">
+                    <h4>Dépenses par catégorie</h4>
+                    <p>mois en cours</p>
+                </div>
             </div>
-            <div>
-                <i class="fa-solid fa-user"></i>
-                <h4>Total des membres</h4>
-                <span>18</span>
-                <small>Tous groupes confondus</small>
+        </main>
+    </section>
+
+
+    <section id="group">
+      
+
+        <body>
+            <div class="container">
+                <header id="header">
+                    <h1 id="logoH">Vue d'ensemble<span>Dashbord</span></h1>
+                    <link rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+                    <div class="search fa-solid fa-magnifying-glass">
+                        <input type="search" placeholder="Rechercher..." id="search">
+                    </div>
+                </header>
+                <aside class="sidebar">
+                    <div id="logoA">
+                        <h2><small>S</small>Split<span>Mate</span></h2>
+                    </div>
+                    <div class="navigation">
+                        <nav>
+                            <a href="#index1" class="fa-solid fa-table-cells-large">Table de bord</a>
+                            <a href="#group" class="fa-solid fa-user-group">Groupes</a>
+                            <a href="#" class="fa-solid fa-user">Membres</a>
+                            <a href="#depenses" class="fa-solid fa-file-lines">Depenses</a>
+                            <a href="#" class="fa-solid fa-arrow-up-right-dots">Soldes</a>
+                            <a href="#" class="fa-solid fa-credit-card">Remboursement</a>
+                        </nav>
+                    </div>
+                </aside>
+                <main class="main-content">
+
+                    <!---     <header class="page-header">
+<div class="title-page">
+    <h3>OVERVIEW</h3>
+    <h1>Groups</h1>
+</div>
+
+<div class="input-header">
+   <img id="search-icone" src="icone/search.png" alt="search-icone"> <input type="search" id="header-search" placeholder="Search anything...">
+</div>
+        </header>-->
+
+
+                    <section class="part_one_main">
+                        <div class="description_main">
+                            <p class="title-main"> My Groups</p>
+                            <p class="sous-title-main">Organize expenses by trips, homes, or events.</p>
+                            <!--<img class="search-icone-main" src="icone/search.png" alt="search-icone"> <input type="search" id="main-search" placeholder="Search groups...">-->
+                        </div>
+
+                        <div class="button-main">
+                            <button class="create-group">+ Create Group</button>
+                            <select class="status">
+                                <option value="">status</option>
+                                <option value="one">one</option>
+                            </select>
+                    </section>
+
+                    <section class="listes-cards">
+                        <div id="card">
+                            <h3 id="group-name">Voyage à Lisbonne </h3>
+                            <p id="group-description">Escapade estivale entre amis </p>
+
+                            <div id="started-devise">
+                                <div>
+                                    <p id="started"> STARTED:</p>
+                                    <p id="started-info"> 12mai</p>
+                                </div>
+                                <div>
+                                    <p id="devise"> DEVISE:</p>
+                                    <p id="devise-info"> DH</p>
+                                </div>
+                            </div>
+
+                            <div class="members-total">
+                                <p class="members">5 members</p>
+                                <div class="total-depenses">
+                                    <p class="total">€1,248.60</p>
+                                    <p class="description-total-depenses">Total des dépenses</p>
+                                </div>
+                            </div>
+
+                            <button id="card-button">View details</button>
+
+                        </div>
+                    </section>
+                </main>
             </div>
-            <div>
-                <i class="fa-solid fa-file-lines"></i>
-                <h4>Montant total dépensé</h4>
-                <span>€6,698.80</span>
-                <small>+12,5 % ce mois-ci</small>
-            </div>
-        </div>
-        <div class="Dépenses-récentes">
-            <h4>Dépenses récentes</h4>
-            <p>Votre activité partagée récente</p>
-            <a href="/js/depenses.js">Tous voir -></a>
-        </div>
-        <div>
-            <div class="Dépenses-catégorie">
-               <h4>Dépenses par catégorie</h4>
-               <p>mois en cours</p>
-            </div>
-        </div>
-    </main>
+        </body>
+
+        </html>
+    </section>
+
+    <section id="depenses">
+      
+
+        <body>
+
+            <div class="container">
+                <header id="header">
+                    <h1 id="logoH">Vue d'ensemble<span>Dashbord</span></h1>
+                    <link rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+                    <div class="search fa-solid fa-magnifying-glass">
+                        <input type="search" placeholder="Rechercher..." id="search">
+                    </div>
+                </header>
+                <aside class="sidebar">
+                    <div id="logoA">
+                        <h2><small>S</small>Split<span>Mate</span></h2>
+                    </div>
+                    <div class="navigation">
+                        <nav>
+                            <a href="#index1" class="fa-solid fa-table-cells-large">Table de bord</a>
+                            <a href="#group" class="fa-solid fa-user-group">Groupes</a>
+                            <a href="#" class="fa-solid fa-user">Membres</a>
+                            <a href="#depenses" class="fa-solid fa-file-lines">Depenses</a>
+                            <a href="#" class="fa-solid fa-arrow-up-right-dots">Soldes</a>
+                            <a href="#" class="fa-solid fa-credit-card">Remboursement</a>
+                        </nav>
+                    </div>
+                </aside>
+
+                <main class="main-content-depenses">
+                    <section class="part_one_main_deponses">
+                        <div class="description_main_deponses">
+                            <p class="title-main-deponses"> Dépenses</p>
+                            <p class="sous-title-main-deponses">Suivez chaque paiement et achat partagé.</p>
+                        </div>
+
+                        <div class="button-and-select">
+                            <div class="button-main-depenses">
+                                <button class="Ajouter-deponse">+ Ajouter une dépense</button>
+                            </div>
+                            <div class="select-main-depense">
+                                <select class="select-group">
+                                    <option value="">Tous les groupes</option>
+                                </select>
+
+                                <select class="select-categorie">
+                                    <option value="">categorie</option>
+                                </select>
+
+                                <select class="select-date">
+                                    <option value="">Date</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="table-depenses">
+                        <table border="1">
+                            <tr>
+                                <th>Dépense</th>
+                                <th>Catégorie</th>
+                                <th>Groupe</th>
+                                <th>Payé par</th>
+                                <th>Date</th>
+                                <th>Montant</th>
+                            </tr>
+                            <tr>
+                                <td>Dîner chez Alma</td>
+                                <td> Alimentation</td>
+                                <td>Voyage à Lisbonne </td>
+                                <td> Sara</td>
+                                <td> 14 juin 2025</td>
+                                <td> €128.50</td>
+                            </tr>
+                        </table>
+                    </section>
+                </main>
+
+        </body>
+
+        </html>
+    </section>
+    
 </body>
 
 </html>
