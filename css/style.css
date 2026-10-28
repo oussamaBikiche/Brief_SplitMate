@@ -63,6 +63,7 @@ button.create-group {
     flex-direction: column;
     height: 100%;
     border: 1px solid #e2e8f0;
+    gap: 20px;
 }
 
 #card #group-name {
@@ -98,16 +99,27 @@ button.create-group {
 #devise-info {
     font-weight: bold;
 }
-
+.group-buttons{
+    display: flex;
+    justify-content: space-around;
+}
 #card-button {
-    color: green;
-    background-color: #FFFFFF;
-    width: 80%;
-    height: 40px;
+    color: #FFFFFF;
+    background-color:green ;
+    width: 40%;
+    height: 20px;
     font-weight: bold;
     border-radius: 4px;
 
 
+}
+#delete-button{
+  color: #FFFFFF;
+    background-color:rgb(185, 51, 51) ;
+    width: 40%;
+    height: 20px;
+    font-weight: bold;
+    border-radius: 4px;
 }
 
 .members-total {
@@ -539,14 +551,27 @@ main{
 
 display: flex;
 flex-direction: column;
-gap: 23px;
+gap: 29px;
 }
-.Ajouter-deponse{
+.Ajouter-depense{
       color:  #FFFFFF;
     background-color:green;
     width: 80%;
-    height: 20px;
+    height:40px;
     font-weight: bold;
     border-radius: 7px;
+    margin-left: 18%;
+}
 
+.table-depenses {
+    margin-top: 4%;
+    display: flex;
+    justify-content: center;
+    width:100% ;
+}
+.table-depenses table{
+    
+    width:74% ;
+     text-align: left;
+    
 }

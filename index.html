@@ -80,99 +80,90 @@
 
 
     <section id="group">
-      
 
-        <body>
-            <div class="container">
-                <header id="header">
-                    <h1 id="logoH">Vue d'ensemble<span>Dashbord</span></h1>
-                    <link rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-                    <div class="search fa-solid fa-magnifying-glass">
-                        <input type="search" placeholder="Rechercher..." id="search">
+
+
+        <div class="container">
+            <header id="header">
+                <h1 id="logoH">Vue d'ensemble<span>Dashbord</span></h1>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+                <div class="search fa-solid fa-magnifying-glass">
+                    <input type="search" placeholder="Rechercher..." id="search">
+                </div>
+            </header>
+            <aside class="sidebar">
+                <div id="logoA">
+                    <h2><small>S</small>Split<span>Mate</span></h2>
+                </div>
+                <div class="navigation">
+                    <nav>
+                        <a href="#index1" class="fa-solid fa-table-cells-large">Table de bord</a>
+                        <a href="#group" class="fa-solid fa-user-group">Groupes</a>
+                        <a href="#" class="fa-solid fa-user">Membres</a>
+                        <a href="#depenses" class="fa-solid fa-file-lines">Depenses</a>
+                        <a href="#" class="fa-solid fa-arrow-up-right-dots">Soldes</a>
+                        <a href="#" class="fa-solid fa-credit-card">Remboursement</a>
+                    </nav>
+                </div>
+            </aside>
+            <main class="main-content">
+
+
+
+
+                <section class="part_one_main">
+                    <div class="description_main">
+                        <p class="title-main"> Mes groupes</p>
+                        <p class="sous-title-main">Organisez les dépenses par voyage, logement ou événement</p>
+
                     </div>
-                </header>
-                <aside class="sidebar">
-                    <div id="logoA">
-                        <h2><small>S</small>Split<span>Mate</span></h2>
-                    </div>
-                    <div class="navigation">
-                        <nav>
-                            <a href="#index1" class="fa-solid fa-table-cells-large">Table de bord</a>
-                            <a href="#group" class="fa-solid fa-user-group">Groupes</a>
-                            <a href="#" class="fa-solid fa-user">Membres</a>
-                            <a href="#depenses" class="fa-solid fa-file-lines">Depenses</a>
-                            <a href="#" class="fa-solid fa-arrow-up-right-dots">Soldes</a>
-                            <a href="#" class="fa-solid fa-credit-card">Remboursement</a>
-                        </nav>
-                    </div>
-                </aside>
-                <main class="main-content">
 
-                    <!---     <header class="page-header">
-<div class="title-page">
-    <h3>OVERVIEW</h3>
-    <h1>Groups</h1>
-</div>
+                    <div class="button-main">
+                        <button class="create-group">+ Creer un groupe</button>
+                        <select class="status">
+                            <option value="">status</option>
 
-<div class="input-header">
-   <img id="search-icone" src="icone/search.png" alt="search-icone"> <input type="search" id="header-search" placeholder="Search anything...">
-</div>
-        </header>-->
+                        </select>
+                </section>
 
-
-                    <section class="part_one_main">
-                        <div class="description_main">
-                            <p class="title-main"> My Groups</p>
-                            <p class="sous-title-main">Organize expenses by trips, homes, or events.</p>
-                            <!--<img class="search-icone-main" src="icone/search.png" alt="search-icone"> <input type="search" id="main-search" placeholder="Search groups...">-->
-                        </div>
-
-                        <div class="button-main">
-                            <button class="create-group">+ Create Group</button>
-                            <select class="status">
-                                <option value="">status</option>
-                                <option value="one">one</option>
-                            </select>
-                    </section>
-
-                    <section class="listes-cards">
-                        <div id="card">
+                <section class="listes-cards">
+                    <div id="card">
+                        <div>
                             <h3 id="group-name">Voyage à Lisbonne </h3>
                             <p id="group-description">Escapade estivale entre amis </p>
-
-                            <div id="started-devise">
-                                <div>
-                                    <p id="started"> STARTED:</p>
-                                    <p id="started-info"> 12mai</p>
-                                </div>
-                                <div>
-                                    <p id="devise"> DEVISE:</p>
-                                    <p id="devise-info"> DH</p>
-                                </div>
-                            </div>
-
-                            <div class="members-total">
-                                <p class="members">5 members</p>
-                                <div class="total-depenses">
-                                    <p class="total">€1,248.60</p>
-                                    <p class="description-total-depenses">Total des dépenses</p>
-                                </div>
-                            </div>
-
-                            <button id="card-button">View details</button>
-
                         </div>
-                    </section>
-                </main>
-            </div>
-        </body>
+                        <div id="started-devise">
+                            <div>
+                                <p id="started"> Début :
+                                    :</p>
+                                <p id="started-info"> 12mai</p>
+                            </div>
+                            <div>
+                                <p id="devise"> DEVISE:</p>
+                                <p id="devise-info"> DH</p>
+                            </div>
+                        </div>
 
-        </html>
+                        <div class="members-total">
+                            <p class="members">5 members</p>
+                            <div class="total-depenses">
+                                <p class="total">€1,248.60</p>
+                                <p class="description-total-depenses">Total des dépenses</p>
+                            </div>
+                        </div>
+                        <div class="group-buttons">
+                            <button id="card-button"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                            <button id="delete-button"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
     </section>
 
     <section id="depenses">
-      
+
 
         <body>
 
@@ -210,7 +201,7 @@
 
                         <div class="button-and-select">
                             <div class="button-main-depenses">
-                                <button class="Ajouter-deponse">+ Ajouter une dépense</button>
+                                <button class="Ajouter-depense">+ Ajouter une dépense</button>
                             </div>
                             <div class="select-main-depense">
                                 <select class="select-group">
@@ -252,9 +243,9 @@
 
         </body>
 
-        </html>
-    </section>
-    
+</html>
+</section>
+
 </body>
 
 </html>
