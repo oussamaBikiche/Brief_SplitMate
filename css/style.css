@@ -1,3 +1,123 @@
+
+body{
+
+
+}
+.main-content{
+    background-color: #FFFFFF;
+}
+.part_one_main{
+    display: flex;
+    flex-direction: row;
+justify-content: space-between;
+align-items:center;
+}
+    .description_main{
+        .title-main{
+            font-weight: bold;
+        }
+        .sous-title-main{
+            font-weight: lighter;
+            font-size: 90%;
+            color: #767676;
+        }
+      
+    }
+  .button-main{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+margin-top: 23px;
+    
+   
+
+  } 
+   button.create-group{
+border-color:rgb(65, 105, 3) ;
+background-color: rgb(65, 105, 3);
+color: #FFFFFF;
+border-radius: 7px;
+width: 105%;
+height: 43px;
+}
+ .status{
+    width: 70%;
+    height: 33px;
+    border-radius:3px ;
+    margin-left: 28%;
+}
+.listes-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 20px;
+    margin-top: 20px;
+    
+}
+
+#card{
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 6px ;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid #e2e8f0;
+}
+#card #group-name{
+    font-weight:lighter;
+    
+}
+#card #group-description{
+    color: #767676;
+
+}
+#started-devise{
+    display: flex;
+    flex-direction: row;
+    gap: 23px;
+}
+#started{
+    color: #938e8e;
+font-size: x-small;
+}
+#started-info{
+    font-weight: bold;
+}
+#devise{
+     color: #938e8e;
+font-size: x-small;
+}
+#devise-info{
+    font-weight: bold;
+}
+#card-button {
+    color: green;
+    background-color: #FFFFFF;
+    width: 80%;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 4px;
+    
+    
+}
+.members-total{
+    display: flex;
+    flex-direction: row;
+    gap: 23px;
+}
+
+.members{
+     color: #938e8e;
+font-size: x-small;
+}
+.total{
+       font-weight: bold;
+}
+.description-total-depenses{
+   color: #938e8e;
+font-size: x-small;
+
+}
+=======
 * {
     margin: 0;
     padding: 0;
@@ -375,3 +495,4 @@ main {
         width: 75px;
     }
 }
+
