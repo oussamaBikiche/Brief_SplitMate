@@ -189,7 +189,7 @@ main section {
 
 .hero button,
 .button-main button,
-.Ajouter-deponse {
+.ajouter-membre{
     padding: 10px 16px;
     border: 1px solid #c2d8cc;
     border-radius: 8px;
@@ -203,12 +203,18 @@ main section {
 
 .hero button:last-child,
 button.create-group,
-.Ajouter-deponse {
+button.Ajouter-deponse ,
+button.ajouter-membre{
+    
     background: var(--primary-color) !important;
     color: white !important;
     border-color: var(--primary-color) !important;
 }
 
+.btn-depenses button{
+    position: relative;
+    left: 60%;
+}
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -269,7 +275,8 @@ button.create-group,
 }
 
 .Dépenses-récentes,
-.Dépenses-catégorie {
+.Dépenses-catégorie ,
+.liste-reboursements{
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -277,14 +284,16 @@ button.create-group,
 }
 
 .Dépenses-récentes h4,
-.Dépenses-catégorie h4 {
+.Dépenses-catégorie h4,
+.liste-reboursements h5 {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 4px;
 }
 
 .Dépenses-récentes p,
-.Dépenses-catégorie p {
+.Dépenses-catégorie p,
+.liste-reboursements p {
     font-size: 11px;
     color: var(--text-muted);
     margin-bottom: 15px;
@@ -299,17 +308,22 @@ button.create-group,
     font-weight: 600;
 }
 
-
+#groupes,#membres,#depenses,#soldes,#soldesReb{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
 .part_one_main {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     flex-wrap: wrap;
     gap: 15px;
-    background: var(--card-bg);
     padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--border-color);
 }
 
 .description_main .title-main {
@@ -325,7 +339,7 @@ button.create-group,
 
 .button-main {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 12px;
 }
 
@@ -344,6 +358,7 @@ select {
 .listes-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    background: var(--card-bg);
     gap: 20px;
 }
 
@@ -546,7 +561,6 @@ td {
 }
 
 .message-vide {
-    text-align: center;
     color: var(--text-muted);
     padding: 20px;
     font-style: italic;
