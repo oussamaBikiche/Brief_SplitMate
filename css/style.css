@@ -1,3 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SplitMate : gestion des dépenses partagées entre amis, colocataires et voyageurs.">
+    <title>SplitMate - Tableau de bord</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1 id="logoH">Vue d'ensemble <span>Dashboard</span></h1>
+
+        <div class="search fa-solid fa-magnifying-glass">
+            <input type="search" placeholder="Rechercher..." id="search">
+        </div>
+    </header>
+
+    <aside class="sidebar">
+        <div id="logoA">
+            <h2><small>S</small>Split<span>Mate</span></h2>
+        </div>
+
+        <div class="navigation">
+            <nav>
+                <a href="#Dashbord" class="fa-solid fa-table-cells-large">Tableau de bord</a>
+                <a href="#groupes" class="fa-solid fa-user-group">Groupes</a>
+                <a href="#membres" class="fa-solid fa-user">Membres</a>
+                <a href="#depenses" class="fa-solid fa-file-lines">Dépenses</a>
+                <a href="#soldesReb" class="fa-solid fa-arrow-up-right-dots">Soldes et remboursements</a>
+            </nav>
+        </div>
+    </aside>
+
+    <main>
+        <section id="Dashbord">
+            <div class="hero">
+                <div class="hero-text">
+                    <strong>VOTRE ESPACE PARTAGÉ</strong>
+                    <h3>Bienvenue sur SplitMate !</h3>
+                    <p>Les dépenses partagées, sans les conversations gênantes.</p>
+                </div>
+                <div class="button">
+                    <button type="button" class="create-group">+ Créer un groupe</button>
+                    <button type="button" class="Ajouter-deponse">+ Ajouter une dépense</button>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div>
+                    <i class="fa-solid fa-user-group"></i>
+                    <h4>Total des groupes</h4>
+                    <span id="total-groupes">0</span>
+                    <small>Groupes enregistrés</small>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-user"></i>
+                    <h4>Total des membres</h4>
+                    <span id="total-membres">0</span>
+                    <small>Tous groupes confondus</small>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-file-lines"></i>
+                    <h4>Montant total dépensé</h4>
+                    <span id="total-depenses">0,00</span>
+                    <small>Montant tous groupes confondus</small>
+                </div>
+            </div>
+
+            <div class="Dépenses-récentes">
+                <h4>Dépenses récentes</h4>
+                <p>Votre activité partagée récente</p>
+                <a href="#depenses">Tout voir </a>
+                <div id="depenses-recentes">
+                    <!-- Les dépensesaffichées par javaScript -->
+                    <p class="message-vide">Aucune dépense enregistrée pour le moment.</p>
+                </div>
+            </div>
+
+            <div class="Dépenses-catégorie">
+                <div>
+                    <h4>Dépenses par catégorie</h4>
+                    <p>Mois en cours</p>
+                </div>
+
+                <div id="depenses-par-categorie">
+                    <!-- Les catégories les barres de progression par js-->
+                    <p class="message-vide">Aucune dépense à afficher.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="groupes">
+            <section class="part_one_main">
+                <div class="description_main">
+                    <p class="title-main">Mes groupes</p>
+                    <p class="sous-title-main">Organisez les dépenses par voyage, logement ou événement.</p>
+                </div>
+
+                <div class="button-main">
+                    <button type="button" class="create-group">+ Créer un groupe</button>
+
+                    <label for="status">Filtrer les groupes par statut</label>
+                    <select class="status" id="status">
+                        <option value="">Tous les groupes</option>
+                        <option value="ouvert">Groupes ouverts</option>
+                        <option value="cloture">Groupes clôturés</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="listes-cards">
+                <!-- Les cartes par js
+                 <section class="listes-cards">
+                    <div id="card">
+                        <div>
+                            <h3 id="group-name">Voyage à Lisbonne </h3>
+                            <p id="group-description">Escapade estivale entre amis </p>
+                        </div>
+                        <div id="started-devise">
+                            <div>
+                                <p id="started"> Début :
+                                    :</p>
+                                <p id="started-info"> 12mai</p>
+                            </div>
+                            <div>
+                                <p id="devise"> DEVISE:</p>
+                                <p id="devise-info"> DH</p>
+                            </div>
+                        </div>
+
+                        <div class="members-total">
+                            <p class="members">5 members</p>
+                            <div class="total-depenses">
+                                <p class="total">€1,248.60</p>
+                                <p class="description-total-depenses">Total des dépenses</p>
+                            </div>
+                        </div>
+                        <div class="group-buttons">
+                            <button id="card-button"> <i class="fa-solid fa-pen-to-square"></i> </button>
+                            <button id="delete-button"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                </section>
+        </section> -->
+                <p class="message-vide">Aucun groupe créé pour le moment.</p>
+            </section>
+
+            <section class="formulaire-groupe" id="formulaire-groupe" hidden>
+                <h3 id="titre-formulaire-groupe">Créer un groupe</h3>
+
+                <form id="form-groupe">
+                    <div>
+                        <label for="nom-groupe">Nom du groupe</label>
+                        <input type="text" id="nom-groupe" name="nom" required maxlength="100">
+                    </div>
+
+                    <div>
+                        <label for="description-groupe">Description</label>
+                        <textarea id="description-groupe" name="description" rows="3"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="devise-groupe">Devise</label>
+                        <select id="devise-groupe" name="devise" required>
+                            <option value="">Choisir une devise</option>
+                            <option value="MAD">MAD - Dirham marocain</option>
+                            <option value="EUR">EUR - Euro</option>
+                            <option value="USD">USD - Dollar américain</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="date-debut-groupe">Date de début</label>
+                        <input type="date" id="date-debut-groupe" name="dateDebut" required>
+                    </div>
+
+                    <div>
+                        <label for="cloture-groupe">Statut</label>
+                        <select id="cloture-groupe" name="cloture">
+                            <option value="false">Ouvert</option>
+                            <option value="true">Clôturé</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit">Enregistrer</button>
+                        <button type="button" id="annuler-groupe">Annuler</button>
+                    </div>
+                </form>
+            </section>
+        </section>
+
+        <section id="membres">
+            <div class="texte">
+                <h3>Membres</h3>
+                <p>Gérez les membres de vos groupes partagés.</p>
+            </div>
+
+            <div class="button">
+                <button type="button" id="ajouter-membre">+ Ajouter un membre</button>
+            </div>
+
+            <section class="formulaire-membre" id="formulaire-membre" hidden>
+                <h4 id="titre-formulaire-membre">Ajouter un membre</h4>
+
+                <form id="form-membre">
+                    <div>
+                        <label for="nom-membre">Nom</label>
+                        <input type="text" id="nom-membre" name="nom" required>
+                    </div>
+
+                    <div>
+                        <label for="pseudo-membre">Pseudo</label>
+                        <input type="text" id="pseudo-membre" name="pseudo" required>
+                    </div>
+
+                    <div>
+                        <label for="groupe-membre">Groupe</label>
+                        <select id="groupe-membre" name="groupeId" required>
+                            <option value="">Choisir un groupe</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit">Enregistrer</button>
+                        <button type="button" id="annuler-membre">Annuler</button>
+                    </div>
+                </form>
+            </section>
+
+            <div class="table-membres">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Membre</th>
+                            <th>Pseudo</th>
+                            <th>Groupe</th>
+                            <th>Total payé</th>
+                            <th>Solde actuel</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="liste-membres">
+                        <!-- Les membres  affichés par js -->
+                        <tr>
+                            <td>Alice Jak</td>
+                            <td>@Alo</td>
+                            <td>danse</td>
+                            <td>234$</td>
+                            <td>234$</td>
+                            <td>
+                                <a href="js/membres.js"> <i class="fa-solid fa-pen-clip"></i></a>
+                                <a href="js/membres.js"><i class="fa-solid fa-trash-can"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">Aucun membre enregistré pour le moment.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="depenses">
+            <div class="container">
+                <section class="part_one_main_deponses">
+                    <div class="description_main_deponses">
+                        <p class="title-main-deponses">Dépenses</p>
+                        <p class="sous-title-main-deponses">Suivez chaque paiement et achat partagé.</p>
+                    </div>
+
+                    <div class="button-and-select">
+                        <div class="button-main-depenses">
+                            <button type="button" class="Ajouter-deponse">+ Ajouter une dépense</button>
+                        </div>
+
+                        <div class="select-main-depense">
+                            <label for="select-group">Filtrer par groupe</label>
+                            <select class="select-group" id="select-group">
+                                <option value="">Tous les groupes</option>
+                            </select>
+
+                            <label for="select-categorie">Filtrer par catégorie</label>
+                            <select class="select-categorie" id="select-categorie">
+                                <option value="">Toutes les catégories</option>
+                                <option value="alimentation">Alimentation</option>
+                                <option value="logement">Logement</option>
+                                <option value="transport">Transport</option>
+                                <option value="loisirs">Loisirs</option>
+                                <option value="autre">Autre</option>
+                            </select>
+
+                            <label for="tri-depenses" class="visually-hidden">Trier les dépenses</label>
+                            <select id="tri-depenses" name="tri">
+                                <option value="">Trier par</option>
+                                <option value="date-desc">Date : plus récente</option>
+                                <option value="date-asc">Date : plus ancienne</option>
+                            </select>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="formulaire-depense" id="formulaire-depense" >
+                    <h3 id="titre-formulaire-depense">Ajouter une dépense</h3>
+
+                    <form id="form-depense">
+                        <div>
+                            <label for="titre-depense">Titre</label>
+                            <input type="text" id="titre-depense" name="titre" required maxlength="120"
+                                placeholder="Ex. Dîner chez Alma">
+                        </div>
+
+                        <div>
+                            <label for="montant-depense">Montant</label>
+                            <input type="number" id="montant-depense" name="montant" min="0.01" step="0.01" required
+                                placeholder="0.00">
+                        </div>
+
+                        <div>
+                            <label for="categorie-depense">Catégorie</label>
+                            <select id="categorie-depense" name="categorie" required>
+                                <option value="">Choisir une catégorie</option>
+                                <option value="alimentation">Alimentation</option>
+                                <option value="logement">Logement</option>
+                                <option value="transport">Transport</option>
+                                <option value="loisirs">Loisirs</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="date-depense">Date</label>
+                            <input type="date" id="date-depense" name="date" required>
+                        </div>
+
+                        <div>
+                            <label for="groupe-depense">Groupe</label>
+                            <select id="groupe-depense" name="groupeId" required>
+                                <option value="">Choisir un groupe</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="payeur-depense">Payé par</label>
+                            <select id="payeur-depense" name="payeurId" required>
+                                <option value="">Choisir un payeur</option>
+                            </select>
+                        </div>
+
+                        <fieldset>
+                            <legend>Membres concernés</legend>
+                            <div id="membres-concernes">
+                                <!-- Les membres du groupe sélectionné-->
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Répartition</legend>
+                            <label>
+                                <input type="radio" name="mode-repartition" value="egal" checked>
+                                Parts égales
+                            </label>
+                            <label>
+                                <input type="radio" name="mode-repartition" value="personnalise">
+                                Montants personnalisés
+                            </label>
+
+                            <div id="parts-personnalisees">
+                                <!-- Les champs de parts personnalisées seront affichés ici. -->
+                            </div>
+                        </fieldset>
+
+                        <div class="form-actions">
+                            <button type="submit">Enregistrer la dépense</button>
+                            <button type="button" id="annuler-depense">Annuler</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="table-depenses">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Dépense</th>
+                                <th>Catégorie</th>
+                                <th>Groupe</th>
+                                <th>Payé par</th>
+                                <th>Date</th>
+                                <th>Montant</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="liste-depenses">
+                            <!-- Les dépenses seront affichées ici par JavaScript. -->
+                            <tr>
+                                <td colspan="7">Aucune dépense enregistrée pour le moment.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p id="message-aucun-resultat" hidden>
+                        Aucune dépense ne correspond aux critères.
+                    </p>
+                </section>
+            </div>
+        </section>
+
+        <section id="soldesReb">
+            <div class="texte">
+                <h3>Soldes</h3>
+                <p>Voyez qui doit quoi et réglez les comptes en toute sérénité.</p>
+            </div>
+
+            <div class="table">
+                <h4>Soldes des membres</h4>
+                <span>Calculés sur les groupes actifs</span>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Membre</th>
+                            <th>Total payé</th>
+                            <th>Total dû</th>
+                            <th>Solde net</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="liste-soldes">
+                        <!-- Les soldes calculés et affichés parjs 
+                           <tr>
+                    <td>ccccc</td>
+                    <td>4r3</td>
+                    <td>444</td>
+                    <td>234</td>
+                    <td>debiteur</td>
+                </tr> -->
+                        <tr>
+                            <td colspan="5">Aucun solde à afficher.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="liste-reboursements">
+                <h5>Remboursements suggérés</h5>
+                <p>La façon la plus simple de régler les soldes</p>
+
+                <ul id="liste-remboursements">
+                    <!-- Les remboursements affichépar js
+                      <li>
+                            <div>
+                                <p>meriem doit 10$ a oussama</p>
+                                <strong>10$ Montant</strong>
+                                 <button type="submit">marquer comme terminer</button>
+                            </div>
+                        </li>-->
+                    <li class="message-vide">Aucun remboursement à effectuer</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</html>
+
 * {
     margin: 0;
     padding: 0;
@@ -539,3 +1014,4 @@ dialog::backdrop {
     /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); */
     
 }
+
