@@ -181,34 +181,17 @@ main section {
     color: var(--text-muted);
 }
 
-.hero .button {
-    display: flex;
-    gap: 10px;
-    margin-top: 0;
-}
-
-.hero button,
+.hero a,
 .button-main button,
 .ajouter-membre{
     padding: 10px 16px;
-    border: 1px solid #c2d8cc;
+    text-decoration:none;
+    border: 1px solid var(--primary-color);
     border-radius: 8px;
-    background: white;
-    color: var(--primary-color);
     font-size: 12px;
     font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.hero button:last-child,
-button.create-group,
-button.Ajouter-deponse ,
-button.ajouter-membre{
-    
-    background: var(--primary-color) !important;
-    color: white !important;
-    border-color: var(--primary-color) !important;
+    background: var(--primary-color);
+    color: white;
 }
 
 .btn-depenses button{
@@ -354,7 +337,6 @@ select {
     cursor: pointer;
 }
 
-/* groups */
 .listes-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -489,43 +471,24 @@ td {
     border-bottom: 1px solid #f2f5f3;
 }
 
-.formulaire-groupe,
-.formulaire-membre,
-.formulaire-depense {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 10px;
-    padding: 25px;
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-.formulaire-groupe form,
-.formulaire-membre form,
-.formulaire-depense form {
+form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 15px;
 }
 
-.formulaire-groupe label,
-.formulaire-membre label,
-.formulaire-depense label {
+form label {
     font-size: 11px;
     font-weight: 600;
     margin-bottom: 5px;
     display: block;
 }
 
-.formulaire-groupe input,
-.formulaire-groupe textarea,
-.formulaire-groupe select,
-.formulaire-membre input,
-.formulaire-membre select,
-.formulaire-depense input,
-.formulaire-depense select,
-.formulaire-depense textarea {
+form input,
+form textarea,
+form select,
+form textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid var(--border-color);
@@ -564,4 +527,15 @@ td {
     color: var(--text-muted);
     padding: 20px;
     font-style: italic;
+}
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#dialogM,#dialogG,#dialogD{
+    padding: 30px;
+    border-radius: 10px;
+    border: none;
+    margin: auto;
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); */
+    
 }

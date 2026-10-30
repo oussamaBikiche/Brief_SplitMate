@@ -46,8 +46,10 @@
                     <p>Les dépenses partagées, sans les conversations gênantes.</p>
                 </div>
                 <div class="button">
-                    <button type="button" class="create-group">+ Créer un groupe</button>
-                    <button type="button" class="Ajouter-deponse">+ Ajouter une dépense</button>
+                    <a href="#groupes" class="create-group" id="form-dialog">+ Créer un groupe</a>
+                    <a href="#depenses" class="create-group" id="form-dialog">+ Ajouter une dépense</a>
+                    <!-- <button type="button" class="create-group" id="form-dialog">+ Créer un groupe</button> -->
+                    <!-- <button type="button" class="Ajouter-deponse" id="form-dialog">+ Ajouter une dépense</button> -->
                 </div>
             </div>
 
@@ -109,7 +111,7 @@
                 </div>
 
                 <div class="button-main">
-                    <button type="button" class="create-group">+ Créer un groupe</button>
+                    <button type="button" class="create-group" id="Creer-groupe">+ Créer un groupe</button>
                     <select class="status" id="status">
                         <option value="">Status</option>
                         <option value="ouvert">Groupes ouverts</option>
@@ -154,9 +156,7 @@
                 <p class="message-vide">Aucun groupe créé pour le moment.</p>
             </div>
 
-            <section class="formulaire-groupe" id="formulaire-groupe">
-                <h3 id="titre-formulaire-groupe">Créer un groupe</h3>
-
+            <dialog id="dialogG">
                 <form id="form-groupe">
                     <div>
                         <label for="nom-groupe">Nom du groupe</label>
@@ -196,7 +196,7 @@
                         <button type="button" id="annuler-groupe">Annuler</button>
                     </div>
                 </form>
-            </section>
+            </dialog>
         </section>
 
         <section id="membres">
@@ -207,13 +207,11 @@
                 </div>
 
                 <div class="button">
-                    <button type="button" class="ajouter-membre">+ Ajouter un membre</button>
+                    <button type="button" class="ajouter-membre" id="Creer-membre">+ Ajouter un membre</button>
                 </div>
             </div>
-            <section class="formulaire-membre" id="formulaire-membre">
-                <h4 id="titre-formulaire-membre">Ajouter un membre</h4>
-
-                <form id="form-membre">
+            <dialog id="dialogM">
+                <form id="form-membre" method="dialog">
                     <div>
                         <label for="nom-membre">Nom</label>
                         <input type="text" id="nom-membre" name="nom" required>
@@ -233,10 +231,11 @@
 
                     <div class="form-actions">
                         <button type="submit">Enregistrer</button>
-                        <button type="button" id="annuler-membre">Annuler</button>
+                        <button type="button" id="Annuler-membre">Annuler</button>
                     </div>
                 </form>
-            </section>
+            </dialog>
+
 
             <div class="table-membres">
                 <table>
@@ -253,7 +252,7 @@
 
                     <tbody id="liste-membres">
                         <!-- Les membres  affichés par js -->
-                        <tr>
+                        <!-- <tr>
                             <td>Alice Jak</td>
                             <td>@Alo</td>
                             <td>danse</td>
@@ -263,7 +262,7 @@
                                 <a href="js/membres.js"> <i class="fa-solid fa-pen-clip"></i></a>
                                 <a href="js/membres.js"><i class="fa-solid fa-trash-can"></i></a>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <td colspan="6">Aucun membre enregistré pour le moment.</td>
                         </tr>
@@ -281,7 +280,8 @@
                     </div>
                     <div class="button-main">
                         <div class="btn-depenses">
-                        <button type="button" class="Ajouter-deponse">+ Ajouter une dépense</button>
+                            <button type="button" class="Ajouter-deponse" id="Creer-depense">+ Ajouter une
+                                dépense</button>
                         </div>
                         <div class="select-main-depense">
                             <select class="select-group" id="select-group">
@@ -306,9 +306,7 @@
                     </div>
                 </div>
 
-                <section class="formulaire-depense" id="formulaire-depense">
-                    <h3 id="titre-formulaire-depense">Ajouter une dépense</h3>
-
+                <dialog id="dialogD">
                     <form id="form-depense">
                         <div>
                             <label for="titre-depense">Titre</label>
@@ -381,7 +379,7 @@
                             <button type="button" id="annuler-depense">Annuler</button>
                         </div>
                     </form>
-                </section>
+                </dialog>
 
                 <section class="table-depenses">
                     <table>
@@ -419,8 +417,8 @@
             </div>
 
             <div class="table">
-                <h4>Soldes des membres</h4>
-                <span>Calculés sur les groupes actifs</span>
+                <!-- <h4>Soldes des membres</h4>
+                <span>Calculés sur les groupes actifs</span> -->
 
                 <table>
                     <thead>
@@ -449,9 +447,11 @@
                 </table>
             </div>
 
+            <div class="description_main">
+                <h5 class="title-main">Remboursements suggérés</h5>
+                <p class="sous-title-main">La façon la plus simple de régler les soldes</p>
+            </div>
             <div class="liste-reboursements">
-                <h5>Remboursements suggérés</h5>
-                <p>La façon la plus simple de régler les soldes</p>
 
                 <ul id="liste-remboursements">
                     <!-- Les remboursements affichépar js
@@ -467,5 +467,8 @@
             </div>
         </section>
     </main>
+    <script src="js/groupes.js"></script>
+    <script src="js/membres.js"></script>
+    <script src="js/depenses.js"></script>
 
 </html>
