@@ -77,9 +77,13 @@
             </div>
 
             <div class="Dépenses-récentes">
-                <h4>Dépenses récentes</h4>
-                <p>Votre activité partagée récente</p>
-                <a href="#depenses">Tout voir </a>
+                <div class="part_one_main">
+                    <div>
+                        <h4>Dépenses récentes</h4>
+                        <p>Votre activité partagée récente</p>
+                    </div>
+                    <a href="#depenses">Tout voir ></a>
+                </div>
                 <div id="depenses-recentes">
                     <!-- Les dépensesaffichées par javaScript -->
                     <p class="message-vide">Aucune dépense enregistrée pour le moment.</p>
@@ -100,25 +104,22 @@
         </section>
 
         <section id="groupes">
-            <section class="part_one_main">
+            <div class="part_one_main">
                 <div class="description_main">
                     <p class="title-main">Mes groupes</p>
                     <p class="sous-title-main">Organisez les dépenses par voyage, logement ou événement.</p>
                 </div>
 
                 <div class="button-main">
-                    <button type="button" class="create-group">+ Créer un groupe</button>
-
-                    <label for="status">Filtrer les groupes par statut</label>
+                    <button type="button" class="create-group" id="Creer-groupe">+ Créer un groupe</button>
                     <select class="status" id="status">
-                        <option value="">Tous les groupes</option>
+                        <option value="">Status</option>
                         <option value="ouvert">Groupes ouverts</option>
                         <option value="cloture">Groupes clôturés</option>
                     </select>
                 </div>
-            </section>
-
-            <section class="listes-cards">
+            </div>
+            <div class="listes-cards">
                 <!-- Les cartes par js
                  <section class="listes-cards">
                     <div id="card">
@@ -153,11 +154,9 @@
                 </section>
         </section> -->
                 <p class="message-vide">Aucun groupe créé pour le moment.</p>
-            </section>
+            </div>
 
-            <section class="formulaire-groupe" id="formulaire-groupe">
-                <h3 id="titre-formulaire-groupe">Créer un groupe</h3>
-
+            <dialog id="dialogG">
                 <form id="form-groupe">
                     <div>
                         <label for="nom-groupe">Nom du groupe</label>
@@ -201,19 +200,18 @@
         </section>
 
         <section id="membres">
-            <div class="texte">
-                <h3>Membres</h3>
-                <p>Gérez les membres de vos groupes partagés.</p>
-            </div>
+            <div class="part_one_main">
+                <div class="description_main">
+                    <h3 class="title-main">Membres</h3>
+                    <p class="sous-title-main">Gérez les membres de vos groupes partagés.</p>
+                </div>
 
                 <div class="button">
-                    <button type="button" class="ajouter-membre">+ Ajouter un membre</button>
+                    <button type="button" class="ajouter-membre" id="Creer-membre">+ Ajouter un membre</button>
                 </div>
             </div>
-            <section class="formulaire-membre" id="formulaire-membre">
-                <h4 id="titre-formulaire-membre">Ajouter un membre</h4>
-
-                <form id="form-membre">
+            <dialog id="dialogM">
+                <form id="form-membre" method="dialog">
                     <div>
                         <label for="nom-membre">Nom</label>
                         <input type="text" id="nom-membre" name="nom" required>
@@ -275,25 +273,23 @@
 
         <section id="depenses">
             <div class="container">
-                <section class="part_one_main_deponses">
-                    <div class="description_main_deponses">
-                        <p class="title-main-deponses">Dépenses</p>
-                        <p class="sous-title-main-deponses">Suivez chaque paiement et achat partagé.</p>
+                <div class="part_one_main">
+                    <div class="description_main">
+                        <p class="title-main">Dépenses</p>
+                        <p class="sous-title-main">Suivez chaque paiement et achat partagé.</p>
                     </div>
                     <div class="button-main">
                         <div class="btn-depenses">
-                        <button type="button" class="Ajouter-deponse">+ Ajouter une dépense</button>
+                            <button type="button" class="Ajouter-deponse" id="Creer-depense">+ Ajouter une
+                                dépense</button>
                         </div>
-
                         <div class="select-main-depense">
-                            <label for="select-group">Filtrer par groupe</label>
                             <select class="select-group" id="select-group">
-                                <option value="">Tous les groupes</option>
+                                <option value="">Filtrer par groupe</option>
                             </select>
 
-                            <label for="select-categorie">Filtrer par catégorie</label>
                             <select class="select-categorie" id="select-categorie">
-                                <option value="">Toutes les catégories</option>
+                                <option value="">Filtrer par catégorie</option>
                                 <option value="alimentation">Alimentation</option>
                                 <option value="logement">Logement</option>
                                 <option value="transport">Transport</option>
@@ -301,19 +297,16 @@
                                 <option value="autre">Autre</option>
                             </select>
 
-                            <label for="tri-depenses" class="visually-hidden">Trier les dépenses</label>
                             <select id="tri-depenses" name="tri">
-                                <option value="">Trier par</option>
+                                <option value="">Trier par dates</option>
                                 <option value="date-desc">Date : plus récente</option>
                                 <option value="date-asc">Date : plus ancienne</option>
                             </select>
                         </div>
                     </div>
-                </section>
+                </div>
 
-                <section class="formulaire-depense" id="formulaire-depense" >
-                    <h3 id="titre-formulaire-depense">Ajouter une dépense</h3>
-
+                <dialog id="dialogD">
                     <form id="form-depense">
                         <div>
                             <label for="titre-depense">Titre</label>
@@ -418,9 +411,9 @@
         </section>
 
         <section id="soldesReb">
-            <div class="texte">
-                <h3>Soldes</h3>
-                <p>Voyez qui doit quoi et réglez les comptes en toute sérénité.</p>
+            <div class="description_main">
+                <h3 class="title-main">Soldes</h3>
+                <p class="sous-title-main">Voyez qui doit quoi et réglez les comptes en toute sérénité.</p>
             </div>
 
             <div class="table">
@@ -469,7 +462,7 @@
                                  <button type="submit">marquer comme terminer</button>
                             </div>
                         </li>-->
-                    <li class="message-vide">Aucun remboursement à effectuer</li>
+                    <p class="message-vide">Aucun remboursement à effectuer</p>
                 </ul>
             </div>
         </section>
