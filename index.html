@@ -14,7 +14,7 @@
 
 <body>
     <header id="header">
-        <h1 id="logoH">Vue d'ensemble <span id="titre-page">Tableau de bord</span></h1>
+        <h1 id="logoH">Vue d'ensemble <span>Dashboard</span></h1>
 
         <div class="search fa-solid fa-magnifying-glass">
             <input type="search" placeholder="Rechercher..." id="search">
@@ -28,17 +28,17 @@
 
         <div class="navigation">
             <nav>
-                <a href="#Dashbord" class="items fa-solid fa-table-cells-large" data-section="Dashbord">Tableau de bord</a>
-                <a href="#groupes" class="items fa-solid fa-user-group" data-section="groupes">Groupes</a>
-                <a href="#membres" class="items fa-solid fa-user" data-section="membres">Membres</a>
-                <a href="#depenses" class="items fa-solid fa-file-lines" data-section="depenses">Depenses</a>
-                <a href="#soldesReb" class="items fa-solid fa-arrow-up-right-dots" data-section="soldesReb">Soldes et remboursements</a>
+                <a href="#Dashbord" class="fa-solid fa-table-cells-large">Tableau de bord</a>
+                <a href="#groupes" class="fa-solid fa-user-group">Groupes</a>
+                <a href="#membres" class="fa-solid fa-user">Membres</a>
+                <a href="#depenses" class="fa-solid fa-file-lines">Dépenses</a>
+                <a href="#soldesReb" class="fa-solid fa-arrow-up-right-dots">Soldes et remboursements</a>
             </nav>
         </div>
     </aside>
 
     <main>
-        <section id="Dashbord" class="page-section">
+        <section id="Dashbord">
             <div class="hero">
                 <div class="hero-text">
                     <strong>VOTRE ESPACE PARTAGÉ</strong>
@@ -103,7 +103,7 @@
             </div>
         </section>
 
-        <section id="groupes" class="page-section" hidden>
+        <section id="groupes">
             <div class="part_one_main">
                 <div class="description_main">
                     <p class="title-main">Mes groupes</p>
@@ -199,7 +199,7 @@
             </dialog>
         </section>
 
-        <section id="membres" class="page-section" hidden>
+        <section id="membres">
             <div class="part_one_main">
                 <div class="description_main">
                     <h3 class="title-main">Membres</h3>
@@ -271,7 +271,7 @@
             </div>
         </section>
 
-        <section id="depenses" class="page-section" hidden>
+        <section id="depenses">
             <div class="container">
                 <div class="part_one_main">
                     <div class="description_main">
@@ -410,7 +410,7 @@
             </div>
         </section>
 
-        <section id="soldesReb" class="page-section" hidden>
+        <section id="soldesReb">
             <div class="description_main">
                 <h3 class="title-main">Soldes</h3>
                 <p class="sous-title-main">Voyez qui doit quoi et réglez les comptes en toute sérénité.</p>
@@ -467,7 +467,6 @@
             </div>
         </section>
     </main>
-    <script src="js/main.js"></script>
     <script src="js/groupes.js"></script>
     <script src="js/membres.js"></script>
     <script src="js/depenses.js"></script>
