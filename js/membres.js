@@ -10,4 +10,3 @@ btnClsM.addEventListener('click', () => {
     dialogM.close(); 
 });
 
-console.log(addEventListener)
