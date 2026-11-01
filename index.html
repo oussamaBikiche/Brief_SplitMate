@@ -14,8 +14,7 @@
 
 <body>
     <header id="header">
-        <h1 id="logoH">Vue d'ensemble <span id="titre-page">Tableau de bord</span></h1>
-
+<h1 id="logoH">Vue d'ensemble <span id="titre-page">Tableau de bord</span></h1>
         <div class="search fa-solid fa-magnifying-glass">
             <input type="search" placeholder="Rechercher..." id="search">
         </div>
@@ -28,7 +27,7 @@
 
         <div class="navigation">
             <nav>
-                <a href="#Dashbord" class="items fa-solid fa-table-cells-large" data-section="Dashbord">Tableau de bord</a>
+                 <a href="#Dashbord" class="items fa-solid fa-table-cells-large" data-section="Dashbord">Tableau de bord</a>
                 <a href="#groupes" class="items fa-solid fa-user-group" data-section="groupes">Groupes</a>
                 <a href="#membres" class="items fa-solid fa-user" data-section="membres">Membres</a>
                 <a href="#depenses" class="items fa-solid fa-file-lines" data-section="depenses">Depenses</a>
@@ -38,7 +37,7 @@
     </aside>
 
     <main>
-        <section id="Dashbord" class="page-section">
+       <section id="Dashbord" class="page-section">
             <div class="hero">
                 <div class="hero-text">
                     <strong>VOTRE ESPACE PARTAGÉ</strong>
@@ -120,7 +119,7 @@
                 </div>
             </div>
             <div class="listes-cards">
-                <!-- Les cartes par js
+                <!-- Les cartes par js-->
                  <section class="listes-cards">
                     <div id="card">
                         <div>
@@ -139,10 +138,10 @@
                             </div>
                         </div>
 
-                        <div class="members-total">
-                            <p class="members">5 members</p>
+                        <div class="total">
+                            
                             <div class="total-depenses">
-                                <p class="total">€1,248.60</p>
+                                <p class="total"> </p>
                                 <p class="description-total-depenses">Total des dépenses</p>
                             </div>
                         </div>
@@ -152,7 +151,7 @@
                         </div>
                     </div>
                 </section>
-        </section> -->
+         
                 <p class="message-vide">Aucun groupe créé pour le moment.</p>
             </div>
 
@@ -192,7 +191,7 @@
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit">Enregistrer</button>
+                        <button type="submit" id="Enregistrer-groupe">Enregistrer</button>
                         <button type="button" id="annuler-groupe">Annuler</button>
                     </div>
                 </form>
