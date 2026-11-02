@@ -20,7 +20,7 @@ const groupDescription = document.getElementById('group-description')
 const startedInfo = document.getElementById('started-info')
 const deviseInfo = document.getElementById('devise-info')
 
-
+const messageVide = document.getElementById('message-vide');
 
 
 
@@ -47,18 +47,26 @@ formGroupe.addEventListener('submit', function (event) {
 
     groupes.push(objtGroupes);
     console.log(groupes)
-    AfficherGroupes() 
-    nomGroupe.value=" ";
-    descriptionGroupe.value=" ";
-    dateDebutGroupe.value=" ";
-    deviseGroupe.value="";
+    AfficherGroupes()
 
+  
+   
+
+    nomGroupe.value = " ";
+    descriptionGroupe.value = " ";
+    dateDebutGroupe.value = " ";
+    deviseGroupe.value = "";
+ if (groupes.length > 0) {
+        messageVide.innerHTML =" ";
+    }
+
+localStorage.setItem('groupes',JSON.stringify(groupes))
 })
 
 function AfficherGroupes() {
-
+   Card.innerHTML = " ";
     groupes.forEach(function (index) {
-        Card.innerHTML = " ";
+ 
         counter = groupes.length;
         Card.innerHTML += `   <div id=${index.id}>
                         <div>
@@ -92,11 +100,12 @@ function AfficherGroupes() {
         
         
         `
+ })
 
 
-
-    })
 }
+
+fun
 
 
 
