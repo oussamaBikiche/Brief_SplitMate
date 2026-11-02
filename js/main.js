@@ -13,8 +13,7 @@ items.forEach(function (item) {
         });
         const sectionActive = document.getElementById(sectionId);
         sectionActive.hidden = false;
-        titrePage.textContent = item.textContent.trim();
-
+        titrePage.textContent = item.textContent.trim();       
     });
 
 });
