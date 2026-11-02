@@ -185,9 +185,9 @@ main section {
 
 .hero a,
 .button-main button,
-.ajouter-membre{
+.ajouter-membre {
     padding: 10px 16px;
-    text-decoration:none;
+    text-decoration: none;
     border: 1px solid var(--primary-color);
     border-radius: 8px;
     font-size: 12px;
@@ -196,10 +196,11 @@ main section {
     color: white;
 }
 
-.btn-depenses button{
+.btn-depenses button {
     position: relative;
     left: 60%;
 }
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -260,8 +261,8 @@ main section {
 }
 
 .Dépenses-récentes,
-.Dépenses-catégorie ,
-.liste-reboursements{
+.Dépenses-catégorie,
+.liste-reboursements {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -293,7 +294,11 @@ main section {
     font-weight: 600;
 }
 
-#groupes,#membres,#depenses,#soldes,#soldesReb{
+#groupes,
+#membres,
+#depenses,
+#soldes,
+#soldesReb {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -303,6 +308,7 @@ main section {
     border-radius: 10px;
     border: 1px solid var(--border-color);
 }
+
 .part_one_main {
     display: flex;
     justify-content: space-between;
@@ -530,15 +536,18 @@ form textarea {
     padding: 20px;
     font-style: italic;
 }
+
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
 }
-#dialogM,#dialogG,#dialogD{
+
+#dialogM,
+#dialogG,
+#dialogD {
     padding: 30px;
     border-radius: 10px;
     border: none;
     margin: auto;
     /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.6); */
-    
-}
 
+}
