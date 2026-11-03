@@ -1,3 +1,6 @@
+import { saveGroupsToLS } from "./storage.js";
+import { readGroupsFromLS } from "./storage.js";
+
 const btnOvrtG = document.getElementById("Creer-groupe");
 const dialogG = document.getElementById("dialogG");
 const btnClsG = document.getElementById("annuler-groupe");
@@ -22,6 +25,7 @@ const deviseInfo = document.getElementById('devise-info')
 
 const messageVide = document.getElementById('message-vide');
 
+const modifyButton = document.getElementById('modify-button');
 
 
 btnOvrtG.addEventListener('click', () => {
@@ -32,12 +36,26 @@ btnClsG.addEventListener('click', () => {
     dialogG.close();
 });
 
+
 let groupes = [];
-let counter = 1;
+function createId() {
+    if (groupes.length === 0) {
+        return 1;
+    } else {
+        let ids = groupes.map(function (groupe) {
+            return groupe.id;
+        });
+
+        let maxId = Math.max(...ids);//spread operator(bch yfr9 lina les elements)
+
+        return maxId + 1;
+    }
+}
 formGroupe.addEventListener('submit', function (event) {
+
     event.preventDefault();
     let objtGroupes = {
-        id: counter++,
+        id: createId(),
         NomGroup: nomGroupe.value,
         Description: descriptionGroupe.value,
         Devise: deviseGroupe.value,
@@ -47,27 +65,27 @@ formGroupe.addEventListener('submit', function (event) {
 
     groupes.push(objtGroupes);
     console.log(groupes)
+
+
+
+    saveGroupsToLS(groupes);
     AfficherGroupes()
-
-  
-   
-
     nomGroupe.value = " ";
     descriptionGroupe.value = " ";
     dateDebutGroupe.value = " ";
     deviseGroupe.value = "";
- if (groupes.length > 0) {
-        messageVide.innerHTML =" ";
+    if (groupes.length > 0) {
+        messageVide.innerHTML = " ";
     }
 
-localStorage.setItem('groupes',JSON.stringify(groupes))
+
 })
 
 function AfficherGroupes() {
-   Card.innerHTML = " ";
+    Card.innerHTML = " ";
     groupes.forEach(function (index) {
- 
-        counter = groupes.length;
+
+        let counter = groupes.length;
         Card.innerHTML += `   <div id=${index.id}>
                         <div>
                             <h3 id="group-name">${index.NomGroup} </h3>
@@ -100,15 +118,32 @@ function AfficherGroupes() {
         
         
         `
- })
+    })
 
 
 }
 
-fun
+
+//const deleteButton=document.querySelectorAll('.delete-button')
+//function deleteGroup(){
+
+
+//deleteButton.addEventListener('click',()=>{
+
+
+
+//console.log("tmmm");
+//})
+
+
+
+
+
+//}
 
 
 
 
 
 
+groupes = readGroupsFromLS();
