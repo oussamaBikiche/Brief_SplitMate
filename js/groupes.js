@@ -1,3 +1,8 @@
+
+
+import { saveGroupsToLS } from "./storage.js";
+import { readGroupsFromLS } from "./storage.js";
+
 const btnOvrtG = document.getElementById("Creer-groupe");
 const dialogG = document.getElementById("dialogG");
 const btnClsG = document.getElementById("annuler-groupe");
@@ -22,6 +27,7 @@ const deviseInfo = document.getElementById('devise-info')
 
 const messageVide = document.getElementById('message-vide');
 
+const modifyButton =document.getElementById('modify-button');
 
 
 btnOvrtG.addEventListener('click', () => {
@@ -32,12 +38,26 @@ btnClsG.addEventListener('click', () => {
     dialogG.close();
 });
 
-let groupes = [];
-let counter = 1;
+
+ let groupes = [];
+function createId() {
+    if (groupes.length === 0) {
+        return 1;
+    } else {
+        let ids =groupes.map(function (groupe) {
+            return groupe.id;
+        });
+
+        let maxId = Math.max(...ids);
+
+        return maxId + 1;
+    }
+}
 formGroupe.addEventListener('submit', function (event) {
+   
     event.preventDefault();
     let objtGroupes = {
-        id: counter++,
+        id: createId,
         NomGroup: nomGroupe.value,
         Description: descriptionGroupe.value,
         Devise: deviseGroupe.value,
@@ -47,11 +67,11 @@ formGroupe.addEventListener('submit', function (event) {
 
     groupes.push(objtGroupes);
     console.log(groupes)
-    AfficherGroupes()
-
-  
    
 
+  
+   saveGroupsToLS(groupes);
+ AfficherGroupes()
     nomGroupe.value = " ";
     descriptionGroupe.value = " ";
     dateDebutGroupe.value = " ";
@@ -60,7 +80,7 @@ formGroupe.addEventListener('submit', function (event) {
         messageVide.innerHTML =" ";
     }
 
-localStorage.setItem('groupes',JSON.stringify(groupes))
+
 })
 
 function AfficherGroupes() {
@@ -105,10 +125,27 @@ function AfficherGroupes() {
 
 }
 
-fun
+
+//const deleteButton=document.querySelectorAll('.delete-button')
+//function deleteGroup(){
+
+
+//deleteButton.addEventListener('click',()=>{
+   
+
+    
+//console.log("tmmm");
+//})
+
+
+
+
+
+//}
 
 
 
 
 
 
+groupes=readGroupsFromLS() ;
