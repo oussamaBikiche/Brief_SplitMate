@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SplitMate : gestion des dépenses partagées entre amis, colocataires et voyageurs.">
+    <meta name="description"
+        content="SplitMate : gestion des dépenses partagées entre amis, colocataires et voyageurs.">
     <title>SplitMate - Tableau de bord</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -26,11 +27,13 @@
 
         <div class="navigation">
             <nav>
-                <a href="#Dashbord" class="items fa-solid fa-table-cells-large" data-section="Dashbord">Tableau de bord</a>
+                <a href="#Dashbord" class="items fa-solid fa-table-cells-large" data-section="Dashbord">Tableau de
+                    bord</a>
                 <a href="#groupes" class="items fa-solid fa-user-group" data-section="groupes">Groupes</a>
                 <a href="#membres" class="items fa-solid fa-user" data-section="membres">Membres</a>
                 <a href="#depenses" class="items fa-solid fa-file-lines" data-section="depenses">Depenses</a>
-                <a href="#soldesReb" class="items fa-solid fa-arrow-up-right-dots" data-section="soldesReb">Soldes et remboursements</a>
+                <a href="#soldesReb" class="items fa-solid fa-arrow-up-right-dots" data-section="soldesReb">Soldes et
+                    remboursements</a>
             </nav>
         </div>
     </aside>
@@ -191,7 +194,8 @@
 
                     <div class="form-actions">
                         <button type="submit" id="Enregistrer-groupe">Enregistrer</button>
-                        <button type="button" id="annuler-groupe">Annuler</button>
+                        <button type="button" id="annuler-groupe">Annuler</button>   
+                     
                     </div>
                 </form>
             </dialog>
@@ -217,7 +221,8 @@
 
                     <div>
                         <label for="pseudo-membre">Pseudo</label>
-                        <input type="text" id="pseudo-membre" name="pseudo" required>
+                        <input type="file" id="pseudo-membre" accept="image/*" required>
+                        <div id="preview-image"></div>
                     </div>
 
                     <div>
@@ -228,8 +233,9 @@
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit">Enregistrer</button>
+                        <button type="submit" id="enregistrer-button">Enregistrer</button>
                         <button type="button" id="Annuler-membre">Annuler</button>
+               
                     </div>
                 </form>
             </dialog>
@@ -249,18 +255,6 @@
                     </thead>
 
                     <tbody id="liste-membres">
-                        <!-- Les membres  affichés par js -->
-                        <!-- <tr>
-                            <td>Alice Jak</td>
-                            <td>@Alo</td>
-                            <td>danse</td>
-                            <td>234$</td>
-                            <td>234$</td>
-                            <td>
-                                <a href="js/membres.js"> <i class="fa-solid fa-pen-clip"></i></a>
-                                <a href="js/membres.js"><i class="fa-solid fa-trash-can"></i></a>
-                            </td>
-                        </tr> -->
                         <tr>
                             <td colspan="6">Aucun membre enregistré pour le moment.</td>
                         </tr>
@@ -465,7 +459,7 @@
             </div>
         </section>
     </main>
-    <script type="module"  src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
     <script type="module" src="js/groupes.js"></script>
     <script type="module" src="js/membres.js"></script>
     <script type="module" src="js/depenses.js"></script>
