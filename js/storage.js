@@ -19,3 +19,5 @@ export function readMembresFromLS() {
 export function saveMembresToLS(membres) {
     localStorage.setItem(MEMBRES_KEY, JSON.stringify(membres))
 }
+
+
