@@ -8,7 +8,7 @@ const btnClsG = document.getElementById("annuler-groupe");
 
 
 const formGroupe = document.getElementById('form-groupe')
-const 
+
 const buttonEnregistrer = document.getElementById('Enregistrer-groupe')
 
 const nomGroupe = document.getElementById('nom-groupe')
@@ -17,7 +17,6 @@ const deviseGroupe = document.getElementById('devise-groupe')
 const dateDebutGroupe = document.getElementById('date-debut-groupe')
 const clotureGroupe = document.getElementById('cloture-groupe')
 
-
 const Card = document.getElementById('card');
 const groupDescription = document.getElementById('group-description')
 const startedInfo = document.getElementById('started-info')
@@ -25,14 +24,22 @@ const deviseInfo = document.getElementById('devise-info')
 
 const messageVide = document.getElementById('message-vide');
 
-const ButtonModifier = document.getElementById('button-modifier')
 
 
+const enregistrerButton = document.getElementById('Enregistrer-groupe')
 
+const buttonModifier = document.querySelector('.button-modifier')
 
 
 btnOvrtG.addEventListener('click', () => {
     dialogG.showModal();
+
+
+
+    enregistrerButton.style.display = 'block';
+    buttonModifier.style.display = 'none';
+
+
 });
 
 btnClsG.addEventListener('click', () => {
@@ -61,7 +68,12 @@ function createId() {
 formGroupe.addEventListener('submit', function (event) {
 
 
+
     event.preventDefault();
+
+
+
+
     let objtGroupes = {
         id: createId(),
 
@@ -70,24 +82,26 @@ formGroupe.addEventListener('submit', function (event) {
         Devise: deviseGroupe.value,
         DateDebut: dateDebutGroupe.value,
 
+
+
     }
+
+
+
 
     groupes.push(objtGroupes);
     console.log(groupes)
 
 
-
-
-    saveGroupsToLS(groupes);
-    AfficherGroupes()
-
-
+    dialogG.close();
 
 
     nomGroupe.value = " ";
     descriptionGroupe.value = " ";
     dateDebutGroupe.value = " ";
     deviseGroupe.value = "";
+    saveGroupsToLS(groupes);
+    AfficherGroupes()
 
 
 
@@ -138,8 +152,6 @@ function AfficherGroupes() {
 }
 
 
-const deleteButton = document.querySelectorAll('.delete-button')
-const modifyButton = document.getElementById('modify-button');
 
 function deleteModifyGroup() {
 
@@ -161,14 +173,23 @@ function deleteModifyGroup() {
     })
 
     Card.addEventListener('click', (mod) => {
-    
+
+
+
         let BtnModifier = mod.target.closest('.modifier-button')
         if (BtnModifier) {
-            
+
+
+            enregistrerButton.style.display = 'none';
+            buttonModifier.style.display = 'block';
+
+
+
             console.log('messssiiiiii')
             let dataIdModifier = +BtnModifier.dataset.id;
             console.log(dataIdModifier);
             dialogG.showModal();
+
             groupes.forEach((index) => {
 
                 if (index.id === dataIdModifier) {
@@ -181,18 +202,23 @@ function deleteModifyGroup() {
                     dateDebutGroupe.value = index.DateDebut
 
 
-                    formGroupe.addEventListener('submit', function () {
 
 
+                    buttonModifier.addEventListener('click', () => {
 
 
-                        index.NomGroup = nomGroupe.value;
-                        index.Description = descriptionGroupe.value;
-                        index.Devise = deviseGroupe.value;
-                        index.DateDebut = dateDebutGroupe.value;
+                        index.NomGroup = nomGroupe.value
+                        index.Description = descriptionGroupe.value
+                        index.Devise = deviseGroupe.value
+                        index.DateDebut = dateDebutGroupe.value
+                        console.log(groupes)
+                        saveGroupsToLS(groupes)
+                        AfficherGroupes();
 
+                        dialogG.close();
 
                     })
+
 
                 }
 
@@ -212,4 +238,4 @@ function deleteModifyGroup() {
 
 groupes = readGroupsFromLS();
 AfficherGroupes();
-deleteModifyGroup()
+deleteModifyGroup();
