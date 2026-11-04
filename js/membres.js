@@ -12,12 +12,14 @@ const nomMembre = document.getElementById("nom-membre");
 const pseudoMembre = document.getElementById("pseudo-membre");
 const selectGroupe = document.getElementById("groupe-membre");
 const listes = document.getElementById("liste-membres");
-const formActions = document.getElementById("form-actions");
-const enregistrerMembre = document.getElementById('enregistrer-membre');
+
+
 
 
 let membres = readMembresFromLS();
 let groupes = readGroupsFromLS();
+let membreEnCours = null;
+
 
 
 btnOvrtM.addEventListener('click', () => {
@@ -26,6 +28,7 @@ btnOvrtM.addEventListener('click', () => {
 btnClsM.addEventListener('click', () => {
     dialogM.close();
 });
+
 
 
 function createId() {
@@ -62,44 +65,164 @@ selectGroupes()
 console.log(selectGroupe.options);
 
 
-formGembre.addEventListener('submit', function (event) {
-    event.preventDefault();
-    let objtMembre = {
-        id: createId(),
-        nomMembre: nomMembre.value,
-        pseudoMembre: pseudoMembre.value,
-        groupeMembre: selectGroupe.selectedOptions[0].text,
-        idGroupe: Number(selectGroupe.value),
-        totalPaye: 0,
-        soldeActuel: 0
-    }
 
-    membres.push(objtMembre);
-    saveMembresToLS(membres);
-    afficheMembres()
-    console.log(membres)
-})
+//ajoute membre:
+function ajouteMembre() {
+
+    formGembre.addEventListener('submit', function (event) {
+
+        event.preventDefault();
+
+        let objtMembre = {
+            id: membreEnCours ? membreEnCours.id : createId(),
+
+            nomMembre: nomMembre.value,
+
+            pseudoMembre: pseudoMembre.value,
+
+            groupeMembre: selectGroupe.selectedOptions[0].text,
+
+            idGroupe: Number(selectGroupe.value),
+
+            totalPaye: membreEnCours ? membreEnCours.totalPaye : 0,
+
+            soldeActuel: membreEnCours ? membreEnCours.soldeActuel : 0
+        };
+
+        if (membreEnCours) {
+
+            membres = membres.map(function (membre) {
+
+                if (membre.id === membreEnCours.id) {
+                    return objtMembre;
+                }
+
+                return membre;
+
+            });
+
+        } else {
+
+            membres.push(objtMembre);
+
+        }
+
+        saveMembresToLS(membres);
+
+        afficheMembres();
+
+        nomMembre.value = "";
+        pseudoMembre.value = "";
+        selectGroupe.value = "";
+
+        membreEnCours = null;
+
+        dialogM.close();
+
+    });
+
+}
+
+ajouteMembre();
 
 
+//affiche membre:
 function afficheMembres() {
     listes.innerHTML = "";
+
+    if (membres.length === 0) {
+
+        listes.innerHTML = `
+            <tr>
+                <td colspan="6">
+                    Aucun membre enregistré pour le moment.
+                </td>
+            </tr>
+        `;
+        return;
+    }
     membres.forEach(function (membre) {
-        if (membres.length == 0) {
-            listes.innerHTML = ` <tr>
-                            <td colspan="6">Aucun membre enregistré pour le moment.</td>
-                        </tr>`
-        } else {
-            listes.innerHTML += `<tr>
+        listes.innerHTML += `<tr>
                             <td>${membre.nomMembre}</td>
-                            <td>${membre.pseudoMembre}</td>
+                            <td><img src="${membre.pseudoMembre}"</td>
                             <td>${membre.groupeMembre}</td>
-                            <td>${membre.totalPaye ?? 0} DH</td>
-                            <td>${membre.soldeActuel ?? 0} DH</td>
+                            <td>${membre.totalPaye} DH</td>
+                            <td>${membre.soldeActuel} DH</td>
                             <td>
-                                <a href="js/membres.js"> <i class="fa-solid fa-pen-clip"></i></a>
-                                <a href="js/membres.js"><i class="fa-solid fa-trash-can"></i></a>
+                                <button class="btn-modifier"  data-id=${membre.id}> <i class="fa-solid fa-pen-clip"></i></button>
+                                <button class="btn-delete" data-id=${membre.id}><i class="fa-solid fa-trash-can" ></i></button>
                             </td>
                         </tr>`
-        }
-    })
+    });
+
 }
+
+afficheMembres()
+
+
+//supprssion membre:
+
+listes.addEventListener("click", function (event) {
+
+    let button = event.target.closest(".btn-delete");
+
+    if (button) {
+        supprimerMembre(button);
+    }
+
+});
+
+function filterMembreParId(id) {
+    return membres.filter(item => item.id != id);
+}
+
+function supprimerMembre(target) {
+    let idDelete = target.dataset.id;
+
+    membres = filterMembreParId(idDelete);
+
+    saveMembresToLS(membres);
+
+    afficheMembres();
+}
+
+//modifier membre:
+
+listes.addEventListener("click", function (event) {
+
+    let button = event.target.closest(".btn-modifier");
+
+    if (button) {
+        modifierMembre(button);
+    }
+
+});
+
+
+function trouverMembreId(id) {
+    return membres.find((membre) => membre.id == id)
+}
+
+
+function modifierMembre(target) {
+
+    let idModifier = Number(target.dataset.id);
+    let membre = trouverMembreId(idModifier);
+
+    membreEnCours = membre;
+
+    dialogM.showModal();
+
+    nomMembre.value = membre.nomMembre;
+    selectGroupe.value = membre.idGroupe;
+    previewMembre.src = membre.pseudoMembre;
+
+
+}
+
+
+
+
+
+
+//enregistrer data-id ,submit pour ajout et modifier

@@ -144,6 +144,5 @@ function AfficherGroupes() {
 
 
 
-
-
 groupes = readGroupsFromLS();
+AfficherGroupes()
