@@ -8,7 +8,7 @@ const btnClsG = document.getElementById("annuler-groupe");
 
 
 const formGroupe = document.getElementById('form-groupe')
-
+const 
 const buttonEnregistrer = document.getElementById('Enregistrer-groupe')
 
 const nomGroupe = document.getElementById('nom-groupe')
@@ -25,7 +25,10 @@ const deviseInfo = document.getElementById('devise-info')
 
 const messageVide = document.getElementById('message-vide');
 
-const modifyButton = document.getElementById('modify-button');
+const ButtonModifier = document.getElementById('button-modifier')
+
+
+
 
 
 btnOvrtG.addEventListener('click', () => {
@@ -37,30 +40,36 @@ btnClsG.addEventListener('click', () => {
 });
 
 
+
 let groupes = [];
+
 function createId() {
     if (groupes.length === 0) {
         return 1;
     } else {
+
         let ids = groupes.map(function (groupe) {
             return groupe.id;
         });
 
-        let maxId = Math.max(...ids);//spread operator(bch yfr9 lina les elements)
+        let maxId = Math.max(...ids);
+
 
         return maxId + 1;
     }
 }
 formGroupe.addEventListener('submit', function (event) {
 
+
     event.preventDefault();
     let objtGroupes = {
         id: createId(),
+
         NomGroup: nomGroupe.value,
         Description: descriptionGroupe.value,
         Devise: deviseGroupe.value,
         DateDebut: dateDebutGroupe.value,
-        Cloture: clotureGroupe.value
+
     }
 
     groupes.push(objtGroupes);
@@ -68,15 +77,18 @@ formGroupe.addEventListener('submit', function (event) {
 
 
 
+
     saveGroupsToLS(groupes);
     AfficherGroupes()
+
+
+
+
     nomGroupe.value = " ";
     descriptionGroupe.value = " ";
     dateDebutGroupe.value = " ";
     deviseGroupe.value = "";
-    if (groupes.length > 0) {
-        messageVide.innerHTML = " ";
-    }
+
 
 
 })
@@ -84,9 +96,11 @@ formGroupe.addEventListener('submit', function (event) {
 function AfficherGroupes() {
     Card.innerHTML = " ";
     groupes.forEach(function (index) {
+        if (groupes.length > 0) {
+            messageVide.innerHTML = " ";
+        }
 
-        let counter = groupes.length;
-        Card.innerHTML += `   <div id=${index.id}>
+        Card.innerHTML += `   <div data-id=${index.id}>
                         <div>
                             <h3 id="group-name">${index.NomGroup} </h3>
                             <p id="group-description">${index.Description} </p>
@@ -111,8 +125,8 @@ function AfficherGroupes() {
                             </div>
                         </div>
                         <div class="group-buttons">
-                            <button id="card-button"> <i class="fa-solid fa-pen-to-square"></i> </button>
-                            <button id="delete-button"><i class="fa-solid fa-trash-can"></i></button>
+                            <button class="modifier-button" data-id=${index.id} > <i class="fa-solid fa-pen-to-square"></i> </button>
+                            <button   class="delete-button" data-id=${index.id} ><i class="fa-solid fa-trash-can"></i></button>
                         </div>
                     </div>
         
@@ -124,25 +138,78 @@ function AfficherGroupes() {
 }
 
 
-//const deleteButton=document.querySelectorAll('.delete-button')
-//function deleteGroup(){
+const deleteButton = document.querySelectorAll('.delete-button')
+const modifyButton = document.getElementById('modify-button');
+
+function deleteModifyGroup() {
 
 
-//deleteButton.addEventListener('click',()=>{
+    Card.addEventListener('click', (event) => {
+        let Btndelete = event.target.closest('.delete-button')
+        if (Btndelete) {
+
+            console.log('leoooooooooooo')
+            let dataIddelete = +Btndelete.dataset.id;
+            console.log(dataIddelete)
+
+            groupes = groupes.filter((index) => index.id !== dataIddelete);
+            saveGroupsToLS(groupes)
+            AfficherGroupes(groupes)
+        }
+
+
+    })
+
+    Card.addEventListener('click', (mod) => {
+    
+        let BtnModifier = mod.target.closest('.modifier-button')
+        if (BtnModifier) {
+            
+            console.log('messssiiiiii')
+            let dataIdModifier = +BtnModifier.dataset.id;
+            console.log(dataIdModifier);
+            dialogG.showModal();
+            groupes.forEach((index) => {
+
+                if (index.id === dataIdModifier) {
 
 
 
-//console.log("tmmm");
-//})
+                    nomGroupe.value = index.NomGroup
+                    descriptionGroupe.value = index.Description
+                    deviseGroupe.value = index.Devise
+                    dateDebutGroupe.value = index.DateDebut
+
+
+                    formGroupe.addEventListener('submit', function () {
 
 
 
 
+                        index.NomGroup = nomGroupe.value;
+                        index.Description = descriptionGroupe.value;
+                        index.Devise = deviseGroupe.value;
+                        index.DateDebut = dateDebutGroupe.value;
 
-//}
+
+                    })
+
+                }
+
+
+
+
+            })
+        }
+    })
+
+}
+
+
 
 
 
 
 groupes = readGroupsFromLS();
-AfficherGroupes()
+AfficherGroupes();
+deleteModifyGroup()
