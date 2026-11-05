@@ -242,3 +242,8 @@ groupes = readGroupsFromLS();
 AfficherGroupes();
 deleteModifyGroup();
 
+function afficherTotalGroupes() {
+      let total = groupes.length;
+       document.getElementById("total-groupes").textContent = total;
+}
+afficherTotalGroupes()

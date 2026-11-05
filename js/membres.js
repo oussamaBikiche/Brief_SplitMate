@@ -223,7 +223,9 @@ export function getMembres(){
     return membres
 }
 
-
-
-
-//enregistrer data-id ,submit pour ajout et modifier
+//afficher total des membres dans interface
+function afficherTotalMembres() {
+      let total = membres.length;
+       document.getElementById("total-membres").textContent = total;
+}
+afficherTotalMembres()
