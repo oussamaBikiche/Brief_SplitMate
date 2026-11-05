@@ -1,10 +1,14 @@
-import { readMembresFromLS, saveGroupsToLS } from "./storage.js";
+
 
 import { readGroupsFromLS } from "./storage.js";
 import { getGroupes } from "./groupes.js";
-import{readMembresFromLS} from "./storage.js";
-import { getMembres } from "./membres.js";
 
+
+
+
+import { readMembresFromLS } from "./storage.js";
+import { getMembres } from "./membres.js";
+const membres = getMembres();
 const groupes = getGroupes();
 const btnOvrtD = document.getElementById("Creer-depense");
 const dialogD = document.getElementById("dialogD");
@@ -50,34 +54,47 @@ function EnregistrerUneDepense() {
 
 
     })
-   
+
 
 }
 
 function SelectAfficherGroupesAndMembre() {
     readGroupsFromLS();
-    
-    const optionHTML=groupes.map(groupe=>{
 
-return `  <option value=${groupe.id}>${groupe.NomGroup}</option>`;
-});
- groupeDepense.innerHTML=`  <option value=>Choisir un groupe</option>` +optionHTML.join('');
+    const optionHTML = groupes.map(groupe => {
+
+        return `  <option value=${groupe.id}>${groupe.NomGroup}</option>`;
+
+    });
+    groupeDepense.innerHTML = `  <option value=>Choisir un groupe</option>` + optionHTML.join('');
+
+    groupeDepense.addEventListener('change', () => {
+        filtrerPayeur()
+        console.log('rah ka ytbdl')
+        console.log(groupeDepense.value)
+        console.log(payeurDepense.value)
+        console.log(groupes)
+    })
+
+
 }
-function filtrerPayeur(){
-
- readMembresFromLS()
- const membrePayeur=groupes.filter((group)=>group.NomGroup ===membres.groupeMembre)
-    const optionHTML2= membrePayeur.map(membre=>{
-        return `  <option value=${membre.id }>${membre.nomMembre}</option>`
- });
- payeurDepense.innerHTML=`<option value="">Choisir un payeur</option>`+optionHTML2.join('');
 
 
+
+function filtrerPayeur() {
+
+
+    console.log(membres)
+    let membrePayeur = membres.filter((membre) => membre.id == +groupeDepense.value);
+    const optionHTML2 = membrePayeur.map(membreP => {
+        return `  <option value=${membreP.id}>${membreP.nomMembre}</option>`
+    });
+    payeurDepense.innerHTML = `<option value="">Choisir un payeur</option>` + optionHTML2.join('');
 }
+
 
 
 
 EnregistrerUneDepense()
- SelectAfficherGroupesAndMembre()
- filtrerPayeur()
- 
+SelectAfficherGroupesAndMembre()
+
