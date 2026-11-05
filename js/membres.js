@@ -2,7 +2,6 @@ import { readGroupsFromLS } from "./storage.js";
 import { readMembresFromLS } from "./storage.js";
 import { saveMembresToLS } from "./storage.js";
 
-
 const btnOvrtM = document.getElementById("Creer-membre");
 const dialogM = document.getElementById("dialogM");
 const btnClsM = document.getElementById("Annuler-membre");
@@ -220,7 +219,9 @@ function modifierMembre(target) {
 
 }
 
-
+export function getMembres(){
+    return membres
+}
 
 
 

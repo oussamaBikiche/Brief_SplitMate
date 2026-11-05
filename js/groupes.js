@@ -1,6 +1,8 @@
 import { saveGroupsToLS } from "./storage.js";
 import { readGroupsFromLS } from "./storage.js";
-
+export function getGroupes(){
+    return groupes
+}
 const btnOvrtG = document.getElementById("Creer-groupe");
 const dialogG = document.getElementById("dialogG");
 const btnClsG = document.getElementById("annuler-groupe");
@@ -239,3 +241,4 @@ function deleteModifyGroup() {
 groupes = readGroupsFromLS();
 AfficherGroupes();
 deleteModifyGroup();
+
