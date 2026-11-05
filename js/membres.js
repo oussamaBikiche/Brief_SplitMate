@@ -1,7 +1,9 @@
 import { readGroupsFromLS } from "./storage.js";
 import { readMembresFromLS } from "./storage.js";
 import { saveMembresToLS } from "./storage.js";
-
+export function getMembres(){
+    return membres
+}
 const btnOvrtM = document.getElementById("Creer-membre");
 const dialogM = document.getElementById("dialogM");
 const btnClsM = document.getElementById("Annuler-membre");
@@ -219,9 +221,7 @@ function modifierMembre(target) {
 
 }
 
-export function getMembres(){
-    return membres
-}
+
 
 //afficher total des membres dans interface
 function afficherTotalMembres() {
